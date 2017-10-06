@@ -19,6 +19,7 @@ import {
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FileUploadModule } from 'ng2-file-upload';
+import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AdopterComponent } from './adopter/adopter.component';
@@ -32,6 +33,7 @@ import {AgeService} from './services/age.service';
 import {ColourService} from './services/colour.service';
 import {PetService} from './services/pet.service';
 import {FileUploadComponent} from './file-upload/file-upload.component';
+
 
 
 const appRoutes: Routes = [
@@ -67,7 +69,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {useHash: true}),
     FileUploadModule,
     MatProgressBarModule,
     MatExpansionModule
@@ -76,7 +78,8 @@ const appRoutes: Routes = [
     AgeService,
     BreedService,
     ColourService,
-    PetService
+    PetService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
