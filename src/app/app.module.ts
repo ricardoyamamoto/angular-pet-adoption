@@ -4,16 +4,17 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpModule } from '@angular/http';
 import {
-  MdAutocompleteModule,
-  MdButtonModule,
-  MdCardModule,
-  MdExpansionModule,
-  MdGridListModule,
-  MdIconModule,
-  MdInputModule,
-  MdOptionModule, MdProgressBarModule,
-  MdSelectModule,
-  MdToolbarModule
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatCardModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatOptionModule,
+  MatProgressBarModule,
+  MatSelectModule,
+  MatToolbarModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -57,19 +58,19 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    MdAutocompleteModule,
-    MdCardModule,
-    MdGridListModule,
-    MdSelectModule,
-    MdOptionModule,
-    MdButtonModule,
-    MdIconModule,
-    MdInputModule,
-    MdToolbarModule,
+    MatAutocompleteModule,
+    MatCardModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatToolbarModule,
     RouterModule.forRoot(appRoutes),
     FileUploadModule,
-    MdProgressBarModule,
-    MdExpansionModule
+    MatProgressBarModule,
+    MatExpansionModule
   ],
   providers: [
     AgeService,

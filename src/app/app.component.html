@@ -1,11 +1,11 @@
 <div class="app" fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme">
   <app-header class="header" ></app-header>
-  <md-sidenav-container fxFlex fxLayout="row">
+  <mat-sidenav-container fxFlex fxLayout="row">
     <app-sidenav class="sidebar" fxFlex="15"></app-sidenav>
     <div class="content" fxFlex fxLayout="column">
       <router-outlet fxFlex></router-outlet>
       <div fxFlex="90"></div>
       <app-footer fxFlex="10"></app-footer>
     </div>
-  </md-sidenav-container>
+  </mat-sidenav-container>
 </div>

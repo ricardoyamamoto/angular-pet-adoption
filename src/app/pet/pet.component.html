@@ -1,69 +1,69 @@
 <div class="pet-form">
   <h4>{{header}}</h4>
   <form>
-    <md-grid-list [cols]="3" rowHeight="200px">
-      <md-grid-tile *ngIf="!pet.pictures" class="grid-item">
-        <md-card class="example-card">
-          <md-card-content>No pictures to display</md-card-content>
-        </md-card>
-      </md-grid-tile>
-      <md-grid-tile *ngFor="let picture of pet.pictures" class="image-card">
-        <md-card class="example-card">
-          <md-card-content>
-            <img md-card-image src="{{imageUrl}}/{{picture}}" class="card-image">
-          </md-card-content>
-        </md-card>
-      </md-grid-tile>
-    </md-grid-list>
+    <mat-grid-list [cols]="3" rowHeight="200px">
+      <mat-grid-tile *ngIf="!pet.pictures" class="grid-item">
+        <mat-card class="example-card">
+          <mat-card-content>No pictures to display</mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile *ngFor="let picture of pet.pictures" class="image-card">
+        <mat-card class="example-card">
+          <mat-card-content>
+            <img mat-card-image src="{{imageUrl}}/{{picture}}" class="card-image">
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
 
     <div>
-      <md-form-field>
-        <input mdInput placeholder={{nameLabel}} name="name" [(ngModel)]="pet.name" required>
-      </md-form-field>
+      <mat-form-field>
+        <input matInput placeholder={{nameLabel}} name="name" [(ngModel)]="pet.name" required>
+      </mat-form-field>
     </div>
 
     <div>
-      <md-form-field *ngIf="filteredBreeds">
-        <input mdInput placeholder={{breedLabel}} aria-label="Breed"
-               [mdAutocomplete]="breedAuto" [formControl]="breedCtrl"
+      <mat-form-field *ngIf="filteredBreeds">
+        <input matInput placeholder={{breedLabel}} aria-label="Breed"
+               [matAutocomplete]="breedAuto" [formControl]="breedCtrl"
                [(ngModel)]="pet.breed" required>
-        <md-autocomplete #breedAuto="mdAutocomplete" name="breed" [displayWith]="displayFn">
-          <md-option *ngFor="let breed of filteredBreeds | async" [value]="breed">{{breed.description}}</md-option>
-        </md-autocomplete>
-      </md-form-field>
+        <mat-autocomplete #breedAuto="matAutocomplete" name="breed" [displayWith]="displayFn">
+          <mat-option *ngFor="let breed of filteredBreeds | async" [value]="breed">{{breed.description}}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
 
     <div>
-      <md-form-field *ngIf="filteredAges">
-        <input mdInput placeholder={{ageLabel}} aria-label="Age"
-               [mdAutocomplete]="ageAuto" [formControl]="ageCtrl"
+      <mat-form-field *ngIf="filteredAges">
+        <input matInput placeholder={{ageLabel}} aria-label="Age"
+               [matAutocomplete]="ageAuto" [formControl]="ageCtrl"
                [(ngModel)]="pet.age" required>
-        <md-autocomplete #ageAuto="mdAutocomplete" name="age" [displayWith]="displayFn">
-          <md-option *ngFor="let age of filteredAges | async" [value]="age">{{age.description}}</md-option>
-        </md-autocomplete>
-      </md-form-field>
+        <mat-autocomplete #ageAuto="matAutocomplete" name="age" [displayWith]="displayFn">
+          <mat-option *ngFor="let age of filteredAges | async" [value]="age">{{age.description}}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
 
     <div>
-      <md-form-field *ngIf="filteredSex">
-        <input mdInput placeholder={{sexLabel}} aria-label="Sex"
-               [mdAutocomplete]="sexAuto" [formControl]="sexCtrl"
+      <mat-form-field *ngIf="filteredSex">
+        <input matInput placeholder={{sexLabel}} aria-label="Sex"
+               [matAutocomplete]="sexAuto" [formControl]="sexCtrl"
                [(ngModel)]="pet.sex" required>
-        <md-autocomplete #sexAuto="mdAutocomplete" name="sex">
-          <md-option *ngFor="let sex of filteredSex | async" [value]="sex">{{sex}}</md-option>
-        </md-autocomplete>
-      </md-form-field>
+        <mat-autocomplete #sexAuto="matAutocomplete" name="sex">
+          <mat-option *ngFor="let sex of filteredSex | async" [value]="sex">{{sex}}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
 
     <div>
-      <md-form-field *ngIf="filteredColours">
-        <input mdInput placeholder={{colourLabel}} aria-label="Colour"
-               [mdAutocomplete]="colourAuto" [formControl]="colourCtrl"
+      <mat-form-field *ngIf="filteredColours">
+        <input matInput placeholder={{colourLabel}} aria-label="Colour"
+               [matAutocomplete]="colourAuto" [formControl]="colourCtrl"
                [(ngModel)]="pet.colour" required>
-        <md-autocomplete #colourAuto="mdAutocomplete" name="colour" [displayWith]="displayFn">
-          <md-option *ngFor="let colour of filteredColours | async" [value]="colour">{{colour.description}}</md-option>
-        </md-autocomplete>
-      </md-form-field>
+        <mat-autocomplete #colourAuto="matAutocomplete" name="colour" [displayWith]="displayFn">
+          <mat-option *ngFor="let colour of filteredColours | async" [value]="colour">{{colour.description}}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
 
 
@@ -73,7 +73,7 @@
     </div>
 
     <div>
-      <button type="submit" md-raised-button (click)="save()">{{btnSaveCaption}}</button>
+      <button type="submit" mat-raised-button (click)="save()">{{btnSaveCaption}}</button>
     </div>
 
 
