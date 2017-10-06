@@ -1,0 +1,30 @@
+.my-drop-zone {
+  background: white;
+  border: dotted 3px lightgray;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+  height: 100px;
+}
+
+.upload-form {
+  width: 50%;
+  margin-left: 4px;
+  margin-bottom: 12px;
+}
+
+.queue-progress-bar {
+  width: 100%;
+}
+
+.item-progress-bar {
+  width: 100%;
+}
+
+
+
+.nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+.another-file-over-class { border: dotted 3px green; }
+
+html, body { height: 100%; }

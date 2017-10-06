@@ -1,0 +1,83 @@
+<div class="pet-form">
+  <h4>{{header}}</h4>
+  <form>
+    <md-grid-list [cols]="3" rowHeight="200px">
+      <md-grid-tile *ngIf="!pet.pictures" class="grid-item">
+        <md-card class="example-card">
+          <md-card-content>No pictures to display</md-card-content>
+        </md-card>
+      </md-grid-tile>
+      <md-grid-tile *ngFor="let picture of pet.pictures" class="image-card">
+        <md-card class="example-card">
+          <md-card-content>
+            <img md-card-image src="{{imageUrl}}/{{picture}}" class="card-image">
+          </md-card-content>
+        </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+
+    <div>
+      <md-form-field>
+        <input mdInput placeholder={{nameLabel}} name="name" [(ngModel)]="pet.name" required>
+      </md-form-field>
+    </div>
+
+    <div>
+      <md-form-field *ngIf="filteredBreeds">
+        <input mdInput placeholder={{breedLabel}} aria-label="Breed"
+               [mdAutocomplete]="breedAuto" [formControl]="breedCtrl"
+               [(ngModel)]="pet.breed" required>
+        <md-autocomplete #breedAuto="mdAutocomplete" name="breed" [displayWith]="displayFn">
+          <md-option *ngFor="let breed of filteredBreeds | async" [value]="breed">{{breed.description}}</md-option>
+        </md-autocomplete>
+      </md-form-field>
+    </div>
+
+    <div>
+      <md-form-field *ngIf="filteredAges">
+        <input mdInput placeholder={{ageLabel}} aria-label="Age"
+               [mdAutocomplete]="ageAuto" [formControl]="ageCtrl"
+               [(ngModel)]="pet.age" required>
+        <md-autocomplete #ageAuto="mdAutocomplete" name="age" [displayWith]="displayFn">
+          <md-option *ngFor="let age of filteredAges | async" [value]="age">{{age.description}}</md-option>
+        </md-autocomplete>
+      </md-form-field>
+    </div>
+
+    <div>
+      <md-form-field *ngIf="filteredSex">
+        <input mdInput placeholder={{sexLabel}} aria-label="Sex"
+               [mdAutocomplete]="sexAuto" [formControl]="sexCtrl"
+               [(ngModel)]="pet.sex" required>
+        <md-autocomplete #sexAuto="mdAutocomplete" name="sex">
+          <md-option *ngFor="let sex of filteredSex | async" [value]="sex">{{sex}}</md-option>
+        </md-autocomplete>
+      </md-form-field>
+    </div>
+
+    <div>
+      <md-form-field *ngIf="filteredColours">
+        <input mdInput placeholder={{colourLabel}} aria-label="Colour"
+               [mdAutocomplete]="colourAuto" [formControl]="colourCtrl"
+               [(ngModel)]="pet.colour" required>
+        <md-autocomplete #colourAuto="mdAutocomplete" name="colour" [displayWith]="displayFn">
+          <md-option *ngFor="let colour of filteredColours | async" [value]="colour">{{colour.description}}</md-option>
+        </md-autocomplete>
+      </md-form-field>
+    </div>
+
+
+
+    <div>
+      <app-file-upload [images]="pet.pictures" (notify)="onNotifyImages($event)"></app-file-upload>
+    </div>
+
+    <div>
+      <button type="submit" md-raised-button (click)="save()">{{btnSaveCaption}}</button>
+    </div>
+
+
+  </form>
+
+
+</div>

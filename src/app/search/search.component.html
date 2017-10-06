@@ -1,3 +1,21 @@
-<p>
-  search works!
-</p>
+<div class="search-form" >
+  <md-grid-list *ngIf="pets" cols="3" rowHeight="2:2.6">
+    <md-grid-tile class="search-item" *ngFor="let pet of pets">
+      <md-card class="example-card">
+        <md-card-header>
+          <md-card-title><b>{{pet.name}}</b></md-card-title>
+          <md-card-subtitle>{{pet.lastChanged}}</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="{{imageUrl}}/{{pet.pictures[0]}}">
+        <md-card-content>
+          <p>
+            <b>Age:</b> {{pet.age.description}}<br/>
+            <b>Breed:</b> {{pet.breed[0].description}}<br/>
+            <b>Sex:</b> {{pet.sex}}<br/>
+            <b>Colour:</b> {{pet.colour[0].description}}<br/>
+          </p>
+        </md-card-content>
+      </md-card>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

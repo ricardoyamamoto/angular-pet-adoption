@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://restful-api-pet-adoption.herokuapp.com/'
 };
